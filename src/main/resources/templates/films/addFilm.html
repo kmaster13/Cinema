@@ -15,8 +15,11 @@
         <div class="mt-3 row g-2">
             <div class="col-md">
                 <div class="form-floating">
-                    <input name="title" type="text" class="form-control" id="title" required>
-                    <label for="title">Название фильма</label>
+                    <input th:field="*{title}" type="text" class="form-control" id="title" minlength="4" maxlength="8" required>
+                    <label for="title">Логин</label>
+                    <div class="alert alert-danger mt-2" th:if="${#fields.hasErrors('title')}">
+                        <p th:errors="*{title}"></p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -65,3 +68,32 @@
 </body>
 
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const titleInput = document.getElementById("title");
+        const titleError = document.getElementById("titleError");
+
+        titleInput.addEventListener("input", function () {
+            const title = titleInput.value.trim();
+            if (title.length > 0) {
+                fetch(`/api/films/checkTitle?title=${encodeURIComponent(title)}`)
+                    .then(response => response.json())
+                    .then(isUnique => {
+                        if (!isUnique) {
+                            titleError.style.display = "block";
+                            titleInput.classList.add("is-invalid");
+                        } else {
+                            titleError.style.display = "none";
+                            titleInput.classList.remove("is-invalid");
+                            titleInput.classList.add("is-valid");
+                        }
+                    })
+                    .catch(error => console.error("Ошибка проверки названия:", error));
+            } else {
+                titleError.style.display = "none";
+                titleInput.classList.remove("is-invalid", "is-valid");
+            }
+        });
+    });
+</script>

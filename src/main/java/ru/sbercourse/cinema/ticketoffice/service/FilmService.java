@@ -37,6 +37,7 @@ public class FilmService extends GenericService<Film, FilmDTO> {
     @Value("${spring.security.user.name}")
     private String adminUserName;
     private FilmExtendedMapper filmExtendedMapper;
+    private FilmRepository filmRepository;
     private FilmCreatorRepository filmCreatorRepository;
     private FilmCreatorMapper filmCreatorMapper;
     private UserRepository userRepository;
@@ -47,6 +48,10 @@ public class FilmService extends GenericService<Film, FilmDTO> {
     public FilmService(FilmRepository filmRepository, FilmMapper filmMapper) {
         repository = filmRepository;
         mapper = filmMapper;
+    }
+
+    public boolean isTitleUnique(String title){
+        return !filmRepository.existsFilmByTitle(title);
     }
 
 
@@ -226,6 +231,11 @@ public class FilmService extends GenericService<Film, FilmDTO> {
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    @Autowired
+    public void setFilmRepository(FilmRepository filmRepository) {
+        this.filmRepository = filmRepository;
     }
 
     @Autowired

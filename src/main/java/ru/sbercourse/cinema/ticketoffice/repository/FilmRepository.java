@@ -12,6 +12,8 @@ import java.util.List;
 @Repository
 public interface FilmRepository extends GenericRepository<Film> {
 
+    boolean existsFilmByTitle(String title);
+
     @Query(nativeQuery = true,
             value = """
                     select distinct f.*

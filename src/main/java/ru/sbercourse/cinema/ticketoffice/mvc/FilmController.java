@@ -1,15 +1,18 @@
 package ru.sbercourse.cinema.ticketoffice.mvc;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.sbercourse.cinema.ticketoffice.dto.AddFilmCreatorDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.FilmDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.FilmSearchDTO;
+import ru.sbercourse.cinema.ticketoffice.dto.UserDTO;
 import ru.sbercourse.cinema.ticketoffice.repository.FilmCreatorRepository;
 import ru.sbercourse.cinema.ticketoffice.service.FilmCreatorService;
 import ru.sbercourse.cinema.ticketoffice.service.FilmService;
@@ -41,13 +44,16 @@ public class FilmController {
     }
 
     @GetMapping("/add")
-    public String create(Model model) {
-        model.addAttribute("filmCreators", filmCreatorRepository.findAll());
+    public String create(@ModelAttribute("filmForm") FilmDTO filmDTO) {
         return "films/addFilm";
     }
 
     @PostMapping("/add")
-    public String create(@ModelAttribute("filmForm") FilmDTO filmDTO, @RequestParam("file") MultipartFile file) {
+    public String create(@Valid  @ModelAttribute("filmForm") FilmDTO filmDTO, @RequestParam("file") MultipartFile file, BindingResult bindingResult) {
+        if(!filmService.isTitleUnique(filmDTO.getTitle())) {
+            bindingResult.rejectValue("title", "error.title", "Такой фильм уже существует");
+            return "films/addFilm";
+        }
         if(file != null && file.getSize() > 0) {
             filmService.create(filmDTO, file);
         } else {
