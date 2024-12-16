@@ -8,6 +8,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.sbercourse.cinema.ticketoffice.constants.MailConstants;
+import ru.sbercourse.cinema.ticketoffice.dto.OrderDTO;
+import ru.sbercourse.cinema.ticketoffice.dto.SeatDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.UserDTO;
 import ru.sbercourse.cinema.ticketoffice.mapper.UserMapper;
 import ru.sbercourse.cinema.ticketoffice.model.Order;
@@ -31,7 +33,8 @@ public class UserService extends GenericService<User, UserDTO> {
     private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     private String mailServerUsername;
-
+    private UserRepository userRepository;
+    private SeatService seatService;
 
 
     public UserService(UserRepository userRepository, UserMapper userMapper) {
@@ -112,6 +115,30 @@ public class UserService extends GenericService<User, UserDTO> {
         javaMailSender.send(message);
     }
 
+    public void sendNewBuyEmail(OrderDTO order) {
+        String text = MailConstants.MAIL_MESSAGE_FOR_BUY_TICKET + "\n\nТвои билеты:";
+        for(SeatDTO seat : seatService.getAllByIds(order.getSeatIds())){
+            text += "\nРяд: " + seat.getRow() + " Место: " + seat.getPlace();
+        }
+        SimpleMailMessage message = MailUtils.createEmailMessage(
+                mailServerUsername,
+                userRepository.findById(order.getUserId()).orElse(null).getEmail(),
+                MailConstants.MAIL_SUBJECT_FOR_BUY_TICKET,
+                text
+        );
+        javaMailSender.send(message);
+    }
+
+    public void sendNewAccountEmail(String email) {
+        SimpleMailMessage message = MailUtils.createEmailMessage(
+                mailServerUsername,
+                email,
+                MailConstants.MAIL_SUBJECT_FOR_REGISTRATION_PASSWORD,
+                MailConstants.MAIL_MESSAGE_FOR_REGISTRATION_PASSWORD
+        );
+        javaMailSender.send(message);
+    }
+
     public void changePassword(String uuid, String password) {
         User user = ((UserRepository) repository).getByChangePasswordToken(uuid);
         user.setPassword(bCryptPasswordEncoder.encode(password));
@@ -136,5 +163,15 @@ public class UserService extends GenericService<User, UserDTO> {
     @Autowired
     public void setJavaMailSender(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
+    }
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Autowired
+    public void setSeatService(SeatService seatService) {
+        this.seatService = seatService;
     }
 }

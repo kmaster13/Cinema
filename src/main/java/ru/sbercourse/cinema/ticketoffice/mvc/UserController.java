@@ -1,5 +1,6 @@
 package ru.sbercourse.cinema.ticketoffice.mvc;
 
+import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -58,7 +59,7 @@ public class UserController {
   }
 
   @PostMapping("/registration")
-  public String registration(@ModelAttribute("userForm") UserDTO userDTO, BindingResult bindingResult) {
+  public String registration(@Valid @ModelAttribute("userForm") UserDTO userDTO, BindingResult bindingResult) {
     if(adminUserName.equals(userDTO.getLogin()) || userService.getByLogin(userDTO.getLogin()) != null) {
       bindingResult.rejectValue("login", "error.login", "Такой логин уже существует");
       return "users/registration";
@@ -67,7 +68,12 @@ public class UserController {
       bindingResult.rejectValue("email", "error.email", "Такая почта уже существует");
       return "users/registration";
     }
+    if(bindingResult.hasErrors()) {
+      return "users/registration";
+    }
+
     userService.create(userDTO);
+    userService.sendNewAccountEmail(userDTO.getEmail());
     return "redirect:/login";
   }
 

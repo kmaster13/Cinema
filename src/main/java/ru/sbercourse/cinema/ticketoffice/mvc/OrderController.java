@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.sbercourse.cinema.ticketoffice.dto.DatePeriodDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.FilmSessionDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.OrderDTO;
-import ru.sbercourse.cinema.ticketoffice.service.FilmService;
-import ru.sbercourse.cinema.ticketoffice.service.FilmSessionService;
-import ru.sbercourse.cinema.ticketoffice.service.OrderService;
-import ru.sbercourse.cinema.ticketoffice.service.SeatService;
+import ru.sbercourse.cinema.ticketoffice.service.*;
 
 import java.time.LocalDateTime;
 
@@ -25,6 +22,7 @@ public class OrderController {
     SeatService seatService;
     FilmSessionService filmSessionService;
     FilmService filmService;
+    UserService userService;
 
 
 
@@ -79,6 +77,7 @@ public class OrderController {
     @PostMapping("/add")
     public String addOrder(@ModelAttribute("orderForm") OrderDTO orderDTO) {
         orderService.create(orderDTO);
+        userService.sendNewBuyEmail(orderDTO);
         return "redirect:/orders/user/" + orderDTO.getUserId();
     }
 
@@ -132,5 +131,10 @@ public class OrderController {
     @Autowired
     public void setFilmService(FilmService filmService) {
         this.filmService = filmService;
+    }
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 }

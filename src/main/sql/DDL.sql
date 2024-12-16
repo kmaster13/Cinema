@@ -160,19 +160,3 @@ create table reviews
         constraint fk_reviews_users
             references users
 );
-
-create table halls
-(
-    id               bigint           not null
-        primary key,
-    created_by       varchar(255)     not null,
-    created_when     timestamp(6)     not null,
-    deleted_by       varchar(255),
-    deleted_when     timestamp(6),
-    is_deleted       boolean,
-    updated_by       varchar(255),
-    updated_when     timestamp(6),
-    name             varchar(255)     not null,
-    type             varchar(255)     not null,
-    price_multiplier double precision not null
-);

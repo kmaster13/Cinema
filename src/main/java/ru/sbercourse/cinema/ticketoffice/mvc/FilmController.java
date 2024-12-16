@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.sbercourse.cinema.ticketoffice.dto.AddFilmCreatorDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.FilmDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.FilmSearchDTO;
+import ru.sbercourse.cinema.ticketoffice.repository.FilmCreatorRepository;
 import ru.sbercourse.cinema.ticketoffice.service.FilmCreatorService;
 import ru.sbercourse.cinema.ticketoffice.service.FilmService;
 
@@ -19,7 +20,7 @@ public class FilmController {
 
     private FilmService filmService;
     private FilmCreatorService filmCreatorService;
-
+    private FilmCreatorRepository filmCreatorRepository;
 
 
     @GetMapping("")
@@ -40,7 +41,8 @@ public class FilmController {
     }
 
     @GetMapping("/add")
-    public String create() {
+    public String create(Model model) {
+        model.addAttribute("filmCreators", filmCreatorRepository.findAll());
         return "films/addFilm";
     }
 
@@ -118,5 +120,10 @@ public class FilmController {
     @Autowired
     public void setFilmCreatorService(FilmCreatorService filmCreatorService) {
         this.filmCreatorService = filmCreatorService;
+    }
+
+    @Autowired
+    public void setFilmCreatorRepository(FilmCreatorRepository filmCreatorRepository) {
+        this.filmCreatorRepository = filmCreatorRepository;
     }
 }
