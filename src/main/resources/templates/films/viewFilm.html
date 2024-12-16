@@ -80,8 +80,10 @@
             </div>
             <div class="col-md">
                 <div class="form-floating">
-                    <input name="startDate" type="date" class="form-control" id="startDate" required>
+                    <input name="startDate" type="date" class="form-control" id="startDate"
+                           th:min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" required>
                     <label for="startDate">Дата</label>
+                    <div class="invalid-feedback">Дата не может быть меньше текущей!</div>
                 </div>
             </div>
             <div class="col-md">
