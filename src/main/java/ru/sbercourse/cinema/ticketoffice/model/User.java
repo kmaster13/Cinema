@@ -3,10 +3,12 @@ package ru.sbercourse.cinema.ticketoffice.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Past;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -27,6 +29,8 @@ public class User extends GenericModel{
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @Past(message = "Дата рождения должна быть в прошлом")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
@@ -50,4 +54,11 @@ public class User extends GenericModel{
     @OneToMany(mappedBy = "user", orphanRemoval = true,
             cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     private Set<Order> orders;
+
+    public void setBirthDate(LocalDate birthDate) {
+        if (birthDate.isBefore(LocalDate.of(1910, 1, 1)) || birthDate.isAfter(LocalDate.of(2010, 12, 31))) {
+            throw new IllegalArgumentException("Дата рождения должна быть в диапазоне 1910-2010");
+        }
+        this.birthDate = birthDate;
+    }
 }

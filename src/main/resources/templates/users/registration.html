@@ -80,15 +80,12 @@
         </div>
       </div>
 
-      <!-- Поле даты рождения -->
-      <div class="col-md">
-        <div class="form-floating">
-          <input th:field="*{birthDate}" type="date" class="form-control" id="birthDate" placeholder="Введите дату рождения" required>
-          <label for="birthDate">Дата рождения</label>
-          <div class="invalid-feedback">Введите корректную дату рождения.</div>
-          <div class="alert alert-danger mt-2" th:if="${#fields.hasErrors('birthDate')}">
-            <p th:errors="*{birthDate}"></p>
-          </div>
+      <div class="form-floating mb-3">
+        <input th:field="*{birthDate}" type="date" id="birthDate" name="birthDate" class="form-control"
+               placeholder="Дата рождения" min="1910-01-01" max="2010-12-31" required>
+        <label for="birthDate">Дата рождения</label>
+        <div class="invalid-feedback">
+          Дата должна быть между 1910 и 2010 годами.
         </div>
       </div>
     </div>
