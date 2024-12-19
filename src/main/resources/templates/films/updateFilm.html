@@ -35,13 +35,17 @@
         <div class="mt-3 row g-2">
             <div class="col-md">
                 <div class="form-floating">
-                    <input name="country" th:value="${film.country}" type="text" class="form-control" id="country" required>
+                    <select class="form-select" name="country" id="country" required>
+                        <option selected value="default">Выберите страну из списка</option>
+                        <option th:each="country : ${T(ru.sbercourse.cinema.ticketoffice.model.Country).values()}"
+                                th:value="${country}" th:text="${country.getText()}"></option>
+                    </select>
                     <label for="country">Страна</label>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-floating">
-                    <input name="releaseYear" th:value="${film.releaseYear}" type="number" min="1895"  max="2999" class="form-control" id="releaseYear" required>
+                    <input name="releaseYear" th:value="${film.releaseYear}" type="number" min="1895"  max="2024" class="form-control" id="releaseYear" required>
                     <label for="releaseYear">Год выхода</label>
                 </div>
             </div>
