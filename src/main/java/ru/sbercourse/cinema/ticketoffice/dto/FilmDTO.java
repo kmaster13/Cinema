@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.sbercourse.cinema.ticketoffice.model.Country;
 import ru.sbercourse.cinema.ticketoffice.model.Genre;
 
 @Getter
@@ -20,8 +21,8 @@ public class FilmDTO extends GenericDTO {
     @Schema(description = "Год выхода фильма", example = "1985")
     private Short releaseYear;
 
-    @Schema(description = "Страна производства фильма", example = "США")
-    private String country;
+    @Schema(description = "Страна производства фильма")
+    private Country country;
 
     @Schema(description = "Жанр фильма", example = "FANTASY")
     private Genre genre;

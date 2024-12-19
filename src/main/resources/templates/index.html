@@ -45,7 +45,7 @@
                             <h4 class="card-title mt-2 mb-4" th:text="${film.title}"></h4>
                             <p class="card-text"><span class="text-muted">Жанр: </span><span th:text="${film.genre.text}"></span></p>
                             <p class="card-text"><span class="text-muted">Год выхода: </span><span th:text="${film.releaseYear}"></span></p>
-                            <p class="card-text"><span class="text-muted">Страна производства: </span><span th:text="${film.country}"></span></p>
+                            <p class="card-text"><span class="text-muted">Страна производства: </span><span th:text="${film.country.text}"></span></p>
                         </div>
                         <div class="row my-3 mx-4">
                             <a class="btn btn-outline-dark" th:href="'/films/get/' + ${film.id}" role="button">

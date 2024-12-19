@@ -41,7 +41,7 @@ create table films
     is_deleted       boolean,
     updated_by       varchar(255),
     updated_when     timestamp(6),
-    country          varchar(255) not null,
+    country          smallint     not null,
     description      varchar(255) not null,
     genre            smallint     not null,
     poster_file_name varchar(255),

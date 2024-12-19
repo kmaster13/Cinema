@@ -16,7 +16,7 @@
             <div class="col-md">
                 <div class="form-floating">
                     <input th:field="*{title}" type="text" class="form-control" id="title" minlength="4" maxlength="8" required>
-                    <label for="title">Логин</label>
+                    <label for="title">Название</label>
                     <div class="alert alert-danger mt-2" th:if="${#fields.hasErrors('title')}">
                         <p th:errors="*{title}"></p>
                     </div>
@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-4">
                 <div class="form-floating">
-                    <input name="releaseYear" type="number" min="1895" max="2999" class="form-control" id="releaseYear" required>
+                    <input name="releaseYear" type="number" min="1895" max="2024" class="form-control" id="releaseYear" required>
                     <label for="releaseYear">Год выхода</label>
                 </div>
             </div>

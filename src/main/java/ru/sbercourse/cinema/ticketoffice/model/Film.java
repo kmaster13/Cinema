@@ -27,7 +27,7 @@ public class Film extends GenericModel{
     private Short releaseYear;
 
     @Column(name = "country", nullable = false)
-    private String country;
+    private Country country;
 
     @Column(name = "genre", nullable = false)
     @Enumerated
