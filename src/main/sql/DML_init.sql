@@ -1,10 +1,12 @@
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (1, 'admin', localtimestamp, null, null, false, null, null, 'Дэвид Финчер', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (1, 'admin', localtimestamp, null, null, false, null, null, 'Дэвид Финчер',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (2, 'admin', localtimestamp, null, null, false, null, null, 'Росс Грэйсон Белл', 'Продюсер') ON CONFLICT (id) DO NOTHING;
+VALUES (2, 'admin', localtimestamp, null, null, false, null, null, 'Росс Грэйсон Белл',
+        'Продюсер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
@@ -12,31 +14,38 @@ VALUES (3, 'admin', localtimestamp, null, null, false, null, null, 'Джим У�
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (4, 'admin', localtimestamp, null, null, false, null, null, 'Квентин Тарантино', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (4, 'admin', localtimestamp, null, null, false, null, null, 'Квентин Тарантино',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (5, 'admin', localtimestamp, null, null, false, null, null, 'Роджер Эвери', 'Сценарий') ON CONFLICT (id) DO NOTHING;
+VALUES (5, 'admin', localtimestamp, null, null, false, null, null, 'Роджер Эвери',
+        'Сценарий') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (6, 'admin', localtimestamp, null, null, false, null, null, 'Роберт Земекис', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (6, 'admin', localtimestamp, null, null, false, null, null, 'Роберт Земекис',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (7, 'admin', localtimestamp, null, null, false, null, null, 'Фрэнк Дарабонт', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (7, 'admin', localtimestamp, null, null, false, null, null, 'Фрэнк Дарабонт',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (8, 'admin', localtimestamp, null, null, false, null, null, 'Стивен Спилберг', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (8, 'admin', localtimestamp, null, null, false, null, null, 'Стивен Спилберг',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (9, 'admin', localtimestamp, null, null, false, null, null, 'Сергей Бондарчук', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (9, 'admin', localtimestamp, null, null, false, null, null, 'Сергей Бондарчук',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (10, 'admin', localtimestamp, null, null, false, null, null, 'Марк ДиСалле', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (10, 'admin', localtimestamp, null, null, false, null, null, 'Марк ДиСалле',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
@@ -44,19 +53,17 @@ VALUES (11, 'admin', localtimestamp, null, null, false, null, null, 'Гай Ри
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (12, 'admin', localtimestamp, null, null, false, null, null, 'Кристофер Нолан', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (12, 'admin', localtimestamp, null, null, false, null, null, 'Кристофер Нолан',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
                                   updated_when, full_name, position)
-VALUES (13, 'admin', localtimestamp, null, null, false, null, null, 'Клим Шипенко', 'Режиссер') ON CONFLICT (id) DO NOTHING;
+VALUES (13, 'admin', localtimestamp, null, null, false, null, null, 'Клим Шипенко',
+        'Режиссер') ON CONFLICT (id) DO NOTHING;
 
 -- INSERT INTO public.film_creators (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by,
 --                                   updated_when, full_name, position)
 -- VALUES (14, 'admin', localtimestamp, null, null, false, null, null, 'Джеймс Кэмерон', 'Режиссер') ON CONFLICT (id) DO NOTHING;
-
-
-
-
 
 
 INSERT INTO public.films (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
@@ -127,137 +134,157 @@ VALUES (11, 'admin', localtimestamp, null, null, false, null, null, 2,
 
 
 
-
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (1, 1) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (1, 2) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (1, 3) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (2, 4) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (2, 5) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (3, 6) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (4, 7) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (5, 8) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (6, 9) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (7, 10) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (8, 11) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (9, 12) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (10, 13) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
-INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (11, 6) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (1, 1) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (1, 2) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (1, 3) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (2, 4) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (2, 5) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (3, 6) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (4, 7) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (5, 8) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (6, 9) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (7, 10) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (8, 11) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (9, 12) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (10, 13) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
+INSERT INTO public.films_film_creators (film_id, film_creator_id)
+VALUES (11, 6) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
 -- INSERT INTO public.films_film_creators (film_id, film_creator_id) VALUES (12, 14) ON CONFLICT (film_id, film_creator_id) DO NOTHING;
 
 
-
-
-
+INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
+                          place, row, type)
+VALUES (0, 'admin', localtimestamp, null, null, false, null, null, 1, 1, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (1, 'admin', localtimestamp, null, null, false, null, null, 1, 1) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (1, 'admin', localtimestamp, null, null, false, null, null, 1, 2, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (2, 'admin', localtimestamp, null, null, false, null, null, 2, 1) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (2, 'admin', localtimestamp, null, null, false, null, null, 1, 3, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (3, 'admin', localtimestamp, null, null, false, null, null, 3, 1) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (3, 'admin', localtimestamp, null, null, false, null, null, 2, 1, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (4, 'admin', localtimestamp, null, null, false, null, null, 4, 1) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (4, 'admin', localtimestamp, null, null, false, null, null, 2, 2, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (5, 'admin', localtimestamp, null, null, false, null, null, 5, 1) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (5, 'admin', localtimestamp, null, null, false, null, null, 2, 3, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (6, 'admin', localtimestamp, null, null, false, null, null, 1, 2) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (6, 'admin', localtimestamp, null, null, false, null, null, 3, 1, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (7, 'admin', localtimestamp, null, null, false, null, null, 2, 2) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (7, 'admin', localtimestamp, null, null, false, null, null, 3, 2, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (8, 'admin', localtimestamp, null, null, false, null, null, 3, 2) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (8, 'admin', localtimestamp, null, null, false, null, null, 3, 3, 0) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (9, 'admin', localtimestamp, null, null, false, null, null, 4, 2) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (9, 'admin', localtimestamp, null, null, false, null, null, 1, 1, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (10, 'admin', localtimestamp, null, null, false, null, null, 5, 2) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (10, 'admin', localtimestamp, null, null, false, null, null, 1, 2, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (11, 'admin', localtimestamp, null, null, false, null, null, 1, 3) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (11, 'admin', localtimestamp, null, null, false, null, null, 1, 3, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (12, 'admin', localtimestamp, null, null, false, null, null, 2, 3) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (12, 'admin', localtimestamp, null, null, false, null, null, 2, 1, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (13, 'admin', localtimestamp, null, null, false, null, null, 3, 3) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (13, 'admin', localtimestamp, null, null, false, null, null, 2, 2, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (14, 'admin', localtimestamp, null, null, false, null, null, 4, 3) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (14, 'admin', localtimestamp, null, null, false, null, null, 2, 3, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (15, 'admin', localtimestamp, null, null, false, null, null, 5, 3) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (15, 'admin', localtimestamp, null, null, false, null, null, 3, 1, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (16, 'admin', localtimestamp, null, null, false, null, null, 1, 4) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (16, 'admin', localtimestamp, null, null, false, null, null, 3, 2, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (17, 'admin', localtimestamp, null, null, false, null, null, 2, 4) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (17, 'admin', localtimestamp, null, null, false, null, null, 3, 3, 1) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (18, 'admin', localtimestamp, null, null, false, null, null, 3, 4) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (18, 'admin', localtimestamp, null, null, false, null, null, 1, 1, 2) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (19, 'admin', localtimestamp, null, null, false, null, null, 5, 4) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (19, 'admin', localtimestamp, null, null, false, null, null, 1, 2, 2) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (20, 'admin', localtimestamp, null, null, false, null, null, 4, 4) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (20, 'admin', localtimestamp, null, null, false, null, null, 1, 3, 2) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (21, 'admin', localtimestamp, null, null, false, null, null, 1, 5) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (21, 'admin', localtimestamp, null, null, false, null, null, 2, 1, 2) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (22, 'admin', localtimestamp, null, null, false, null, null, 5, 5) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (22, 'admin', localtimestamp, null, null, false, null, null, 2, 2, 2) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (23, 'admin', localtimestamp, null, null, false, null, null, 3, 5) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (23, 'admin', localtimestamp, null, null, false, null, null, 2, 3, 2) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (24, 'admin', localtimestamp, null, null, false, null, null, 4, 5) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (24, 'admin', localtimestamp, null, null, false, null, null, 3, 1, 2) ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
-                          place, row)
-VALUES (25, 'admin', localtimestamp, null, null, false, null, null, 2, 5) ON CONFLICT (id) DO NOTHING;
+                          place, row, type)
+VALUES (25, 'admin', localtimestamp, null, null, false, null, null, 3, 2, 2) ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO public.seats (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
+                          place, row, type)
+VALUES (26, 'admin', localtimestamp, null, null, false, null, null, 3, 3, 2) ON CONFLICT (id) DO NOTHING;
 
 
 
 
-INSERT INTO public.roles (id, description, title) VALUES (1, 'Пользователь', 'USER') ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO public.roles (id, description, title)
+VALUES (1, 'Пользователь', 'USER') ON CONFLICT (id) DO NOTHING;
 
 
 INSERT INTO public.users (id, created_by, created_when, deleted_by, deleted_when, is_deleted, updated_by, updated_when,
                           birth_date, change_password_token, email, first_name, last_name, login, password, role_id)
 VALUES (1, 'anonymousUser', localtimestamp, null, null, false, null, null, '2000-01-01', null,
-        'u@mail.com', 'u', 'u', 'u', '$2a$10$O0umHw3.FGcL4ebia460BedI4Kb3ERiuxF.tGzPq6Y9kXNlMEZ0rC', 1) ON CONFLICT (id) DO NOTHING;
+        'u@mail.com', 'u', 'u', 'u', '$2a$10$O0umHw3.FGcL4ebia460BedI4Kb3ERiuxF.tGzPq6Y9kXNlMEZ0rC',
+        1) ON CONFLICT (id) DO NOTHING;
 
 

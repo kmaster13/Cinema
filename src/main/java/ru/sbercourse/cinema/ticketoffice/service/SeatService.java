@@ -3,6 +3,7 @@ package ru.sbercourse.cinema.ticketoffice.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.sbercourse.cinema.ticketoffice.dto.SeatsMapDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.SeatDTO;
@@ -18,6 +19,11 @@ public class SeatService extends GenericService<Seat, SeatDTO> {
     public SeatService(SeatRepository seatRepository, SeatMapper seatMapper) {
         repository = seatRepository;
         mapper = seatMapper;
+    }
+
+    public List<SeatDTO> getSeats() {
+        List<Seat> seats = repository.findAll();
+        return mapper.toDTOs(seats);
     }
 
     public Map<Byte, Map<Byte, Long>> getAllInMap(Long filmSessionId) {

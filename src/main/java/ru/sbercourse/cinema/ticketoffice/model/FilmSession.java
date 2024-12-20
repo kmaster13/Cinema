@@ -35,6 +35,10 @@ public class FilmSession extends GenericModel {
     @Column(name = "price", nullable = false)
     private double price;
 
+    @Column(name = "type", nullable = false)
+    @Enumerated
+    private HallType type;
+
     @ToString.Exclude
     @OneToMany(mappedBy = "filmSession")
     private Set<Order> orders;

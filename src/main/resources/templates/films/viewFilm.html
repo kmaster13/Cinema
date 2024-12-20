@@ -46,6 +46,7 @@
             <th scope="col">Дата:</th>
             <th scope="col">Время:</th>
             <th scope="col">Цена билета:</th>
+            <th scope="col">Зал:</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -61,6 +62,7 @@
             <td sec:authorize="isAuthenticated() && (hasRole('ADMIN') || hasRole('MANAGER'))"
                 th:text="${filmSession.startTime}"></td>
             <td th:text="${filmSession.price}"></td>
+            <td th:text="${filmSession.type.getText()}"></td>
             <td sec:authorize="isAuthenticated() && (hasRole('ADMIN') || hasRole('MANAGER'))">
                 <a class="btn btn-sm btn-outline-success" th:href="'/filmSessions/update/' + ${filmSession.getId()}" style="float: right">Редактировать</a>
                 <a th:if="${!filmSession.isDeleted()}" class="btn btn-sm btn-outline-danger" th:href="'/filmSessions/delete/' + ${filmSession.getId()}"
@@ -96,6 +98,16 @@
                 <div class="form-floating">
                     <input name="price" type="number" min="0" class="form-control" id="price" required>
                     <label for="price">Цена</label>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating">
+                    <select class="form-select" name="type" id="type" required>
+                        <option selected value="default">Тип зала</option>
+                        <option th:each="type : ${T(ru.sbercourse.cinema.ticketoffice.model.HallType).values()}"
+                                th:value="${type}" th:text="${type.getText()}"></option>
+                    </select>
+                    <label for="type">Зал</label>
                 </div>
             </div>
         </div>

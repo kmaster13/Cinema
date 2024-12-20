@@ -7,8 +7,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.sbercourse.cinema.ticketoffice.dto.FilmSessionDTO;
 import ru.sbercourse.cinema.ticketoffice.dto.SeatDTO;
+import ru.sbercourse.cinema.ticketoffice.repository.SeatRepository;
 import ru.sbercourse.cinema.ticketoffice.service.FilmService;
 import ru.sbercourse.cinema.ticketoffice.service.FilmSessionService;
 import ru.sbercourse.cinema.ticketoffice.service.SeatService;
@@ -18,26 +20,42 @@ import ru.sbercourse.cinema.ticketoffice.service.SeatService;
 public class SeatController {
 
     private SeatService seatService;
+    @Autowired
+    private SeatRepository seatRepository;
     private FilmSessionService filmSessionService;
     private FilmService filmService;
 
 
-
     @GetMapping("")
     public String getAll(
-            @RequestParam(value = "page", defaultValue = "1") int page,
-            @RequestParam(value = "size", defaultValue = "5") int pageSize,
             Model model
     ) {
-        PageRequest pageRequest = PageRequest.of(page - 1, pageSize, Sort.by(Sort.Direction.ASC, "row", "place"));
-        Page<SeatDTO> seatDTOPage = seatService.getAll(pageRequest);
-        model.addAttribute("seats", seatDTOPage);
+        model.addAttribute("seats", seatService.getSeats());
         return "seats/viewAllSeats";
     }
 
     @PostMapping("/add")
-    public String create(@ModelAttribute("seatForm") SeatDTO seatDTO) {
-        seatService.create(seatDTO);
+    public String create(@ModelAttribute("seatForm") SeatDTO seatDTO, RedirectAttributes redirectAttributes) {
+        try {
+            int maxPlace = seatRepository.findMaxPlaceInRowAndType(seatDTO.getRow(), seatDTO.getType());
+
+            if (maxPlace > 0) {
+                seatDTO.setPlace((byte) (maxPlace + 1));
+            } else {
+                seatDTO.setPlace((byte) 1);
+            }
+
+            int maxRow = seatRepository.findMaxRowByType(seatDTO.getType());
+
+            if (seatDTO.getRow() > maxRow + 1) {
+                throw new IllegalArgumentException("Ряд должен быть не больше " + (maxRow + 1));
+            }
+
+            seatService.create(seatDTO);
+            redirectAttributes.addFlashAttribute("successMessage", "Место успешно добавлено.");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+        }
         return "redirect:/seats";
     }
 
@@ -68,7 +86,7 @@ public class SeatController {
     @PostMapping("/search")
     public String search(
             @RequestParam(value = "page", defaultValue = "1") int page,
-            @RequestParam(value = "size", defaultValue = "5") int pageSize,
+            @RequestParam(value = "size", defaultValue = "3") int pageSize,
             @ModelAttribute("seatsSearchForm") SeatDTO seatDTO,
             Model model
     ) {
@@ -92,7 +110,6 @@ public class SeatController {
         model.addAttribute("seatsInMap", seatService.getAllInMap(filmSessionId));
         return "seats/selectSeat";
     }
-
 
 
     @Autowired

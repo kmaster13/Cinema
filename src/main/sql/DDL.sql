@@ -1,4 +1,3 @@
-
 create table roles
 (
     id          bigserial
@@ -106,7 +105,8 @@ create table seats
     updated_by   varchar(255),
     updated_when timestamp(6),
     place        smallint     not null,
-    row          smallint     not null
+    row          smallint     not null,
+    type         smallint     not null
 );
 
 create table orders

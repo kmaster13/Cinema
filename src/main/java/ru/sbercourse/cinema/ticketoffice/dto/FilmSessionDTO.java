@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.sbercourse.cinema.ticketoffice.model.HallType;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -27,6 +28,9 @@ public class FilmSessionDTO extends GenericDTO implements Comparable<FilmSession
 
     @Schema(description = "Цена")
     private double price;
+
+    @Schema(description = "Тип зала")
+    private HallType type;
 
     @Override
     public int compareTo(FilmSessionDTO o) {

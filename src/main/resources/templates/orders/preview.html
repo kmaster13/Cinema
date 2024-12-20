@@ -31,6 +31,10 @@
                 <h7 class="ms-2">Время:</h7>
                 <input type="time" class="form-control" id="sessionStartTime" th:value="${filmSession.startTime}" disabled readonly>
             </div>
+            <div class="col-md-2">
+                <h7 class="ms-2">Зал:</h7>
+                <input type="type" class="form-control" id="type" th:value="${filmSession.type.getText()}" disabled readonly>
+            </div>
         </div>
     </div>
     <form class="needs-validation" style="max-width: 50vw" method="POST" th:action="@{/orders/add}" th:object="${orderForm}">
