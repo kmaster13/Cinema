@@ -28,9 +28,13 @@ public class SeatController {
 
     @GetMapping("")
     public String getAll(
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "5") int pageSize,
             Model model
     ) {
-        model.addAttribute("seats", seatService.getSeats());
+        PageRequest pageRequest = PageRequest.of(page - 1, pageSize, Sort.by(Sort.Direction.ASC, "type", "row", "place"));
+        Page<SeatDTO> seatDTOPage = seatService.getAll(pageRequest);
+        model.addAttribute("seats", seatDTOPage);
         return "seats/viewAllSeats";
     }
 

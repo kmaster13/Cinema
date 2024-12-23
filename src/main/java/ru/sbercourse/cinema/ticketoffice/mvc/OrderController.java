@@ -23,7 +23,7 @@ public class OrderController {
     FilmSessionService filmSessionService;
     FilmService filmService;
     UserService userService;
-
+    private OrderDTO orderTemp;
 
 
     @GetMapping("")
@@ -76,8 +76,11 @@ public class OrderController {
 
     @PostMapping("/add")
     public String addOrder(@ModelAttribute("orderForm") OrderDTO orderDTO) {
-        orderService.create(orderDTO);
-        userService.sendNewBuyEmail(orderDTO);
+        if (orderTemp == null || !orderDTO.getSeatIds().equals(orderTemp.getSeatIds())) {
+            orderTemp = orderDTO;
+            orderService.create(orderDTO);
+            userService.sendNewBuyEmail(orderDTO);
+        }
         return "redirect:/orders/user/" + orderDTO.getUserId();
     }
 
@@ -110,7 +113,6 @@ public class OrderController {
         model.addAttribute("totalTickets", orderService.getTotalTickets(datePeriodDTO));
         return "orders/viewResults";
     }
-
 
 
     @Autowired

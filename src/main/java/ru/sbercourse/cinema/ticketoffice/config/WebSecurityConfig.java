@@ -47,6 +47,7 @@ public class WebSecurityConfig {
                         requests
 
                                 .requestMatchers("/help").permitAll()
+                                .requestMatchers("/workers").permitAll()
                                 .requestMatchers(RESOURCES_WHITE_LIST.toArray(String[]::new)).permitAll()
 
                                 .requestMatchers(FILMS_WHITE_LIST.toArray(String[]::new)).permitAll()
